@@ -1,10 +1,10 @@
-<template name="GestaoIgrejas_ministration">
+<template name="GestaoIgrejas_visitor">
   <div class="content">
     <div class="box">
       <div class="box-body">
           <div class="row col-md-12">
             <h2>
-              Ministérios
+              Visitantes
               <button type="button" class="btn btn-primary pull-right" id="add">Adicionar</button>
             </h2>
             <br />
@@ -13,18 +13,26 @@
             <thead>
               <tr>
                 <th>Nome</th>
-                <th>Tipo</th>
-                <th>Responsável</th>
+                <th>Idade</th>
+                <th>Visitou</th>
+                <th>Ministérios</th>
+                <th>1°Contato</th>
                 <th>Ações</th>
               </tr>
             </thead>
             <tbody>
-              {{#if listMinistration}}
-                {{#each listMinistration}}
+              {{#if listVisitors}}
+                {{#each listVisitors}}
                   <tr>
-                    <td> {{ministration}} </td>
-                    <td> {{type}} </td>
-                    <td> {{responsible}} </td>
+                    <td> {{name}} </td>
+                    <td> {{getYear}} </td>
+                    <td> {{getVisitation}} </td>
+                    <td>
+                      {{#each ministration}}
+                        {{ministration}} |
+                      {{/each}}
+                    </td>
+                    <td> {{getFirstContact}} </td>
                     <td>
                       <button type="button" class="btn btn-primary" id="edit">Editar</button>
                       <button type="button" class="btn btn-danger" id="remove">Excluir</button>
@@ -34,7 +42,7 @@
               {{else}}
                 <td colspan="4" style="text-align: center">
                   <br />
-                  <b> Nenhum ministério cadastrado. </b>
+                  <b> Nenhum visitante cadastrado. </b>
                 </td>
               {{/if}}
             </tbody>
@@ -44,35 +52,35 @@
 	</div>
 </template>
 
-<template name="GestaoIgrejas_ministration_insert">
+<template name="GestaoIgrejas_visitor_insert">
   <div class="content">
     <div class="box">
       <div class="box-body">
         <div class="row col-md-12">
           <h2>
-            Cadastro de Ministério
+            Cadastro de Visitante
             <button type="button" class="btn btn-primary pull-right" id="back">Voltar</button>
           </h2>
           <br />
         </div>
-        {{> quickForm collection="Ministration" id="insertMinistrationForm" type="insert"}}
+        {{> quickForm collection="Visitor" id="insertVisitorForm" type="insert"}}
 			</div>
 		</div>
 	</div>
 </template>
 
-<template name="GestaoIgrejas_ministration_edit">
+<template name="GestaoIgrejas_visitor_edit">
   <div class="content">
     <div class="box">
       <div class="box-body">
         <div class="row col-md-12">
           <h2>
-            Edição de Ministério
+            Edição de Visitante
             <button type="button" class="btn btn-primary pull-right" id="back">Voltar</button>
           </h2>
           <br />
         </div>
-        {{> quickForm collection="Ministration" doc=data id="updateMinistrationForm" type="update"}}
+        {{> quickForm collection="Visitor" doc=data id="updateVisitorForm" type="update"}}
 			</div>
 		</div>
 	</div>

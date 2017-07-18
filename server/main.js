@@ -1,3 +1,4 @@
+import "./methods";
 import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
