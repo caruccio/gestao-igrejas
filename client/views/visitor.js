@@ -4,7 +4,7 @@ Template.GestaoIgrejas_visitor.helpers({
 		return Visitor.find({});
 	},
 
-  getYear : function() {
+  getAge : function() {
     return (new moment().format('YYYY') - moment(this.dateOfBirth).format('YYYY'));
   },
 

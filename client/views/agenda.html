@@ -1,10 +1,10 @@
-<template name="GestaoIgrejas_visitor">
+<template name="GestaoIgrejas_agenda">
   <div class="content">
     <div class="box">
       <div class="box-body">
           <div class="row col-md-12">
             <h2>
-              Visitantes
+              Agenda de Eventos
               <button type="button" class="btn btn-primary pull-right" id="add">Adicionar</button>
             </h2>
             <br />
@@ -12,27 +12,19 @@
           <table class="table table-hover">
             <thead>
               <tr>
-                <th>Nome</th>
-                <th>Idade</th>
-                <th>Visitou</th>
-                <th>Ministérios</th>
-                <th>1°Contato</th>
+                <th>Evento</th>
+                <th>Data</th>
+                <th>Local</th>
                 <th>Ações</th>
               </tr>
             </thead>
             <tbody>
-              {{#if listVisitors}}
-                {{#each listVisitors}}
+              {{#if listEvents}}
+                {{#each listEvents}}
                   <tr>
                     <td> {{name}} </td>
-                    <td> {{getAge}} </td>
-                    <td> {{getVisitation}} </td>
-                    <td>
-                      {{#each ministration}}
-                        {{ministration}} |
-                      {{/each}}
-                    </td>
-                    <td> {{getFirstContact}} </td>
+                    <td> {{getDateOfEvent}} </td>
+                    <td> {{place}} </td>
                     <td>
                       <button type="button" class="btn btn-primary" id="edit">Editar</button>
                       <button type="button" class="btn btn-danger" id="remove">Excluir</button>
@@ -43,7 +35,7 @@
                 <tr>
                   <td colspan="6" style="text-align: center">
                     <br />
-                    <b> Nenhum visitante cadastrado. </b>
+                    <b> Nenhum evento cadastrado. </b>
                   </td>
                 </tr>
               {{/if}}
@@ -54,35 +46,35 @@
 	</div>
 </template>
 
-<template name="GestaoIgrejas_visitor_insert">
+<template name="GestaoIgrejas_agenda_insert">
   <div class="content">
     <div class="box">
       <div class="box-body">
         <div class="row col-md-12">
           <h2>
-            Cadastro de Visitante
+            Cadastro de Evento
             <button type="button" class="btn btn-primary pull-right" id="back">Voltar</button>
           </h2>
           <br />
         </div>
-        {{> quickForm collection="Visitor" id="insertVisitorForm" type="insert"}}
+        {{> quickForm collection="Agenda" id="insertAgendaForm" type="insert"}}
 			</div>
 		</div>
 	</div>
 </template>
 
-<template name="GestaoIgrejas_visitor_edit">
+<template name="GestaoIgrejas_agenda_edit">
   <div class="content">
     <div class="box">
       <div class="box-body">
         <div class="row col-md-12">
           <h2>
-            Edição de Visitante
+            Edição de Evento
             <button type="button" class="btn btn-primary pull-right" id="back">Voltar</button>
           </h2>
           <br />
         </div>
-        {{> quickForm collection="Visitor" doc=data id="updateVisitorForm" type="update"}}
+        {{> quickForm collection="Agenda" doc=data id="updateAgendaForm" type="update"}}
 			</div>
 		</div>
 	</div>

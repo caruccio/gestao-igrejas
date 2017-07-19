@@ -12,6 +12,16 @@ Meteor.methods({
   removeVisitor: function(id) {
     check(id, String);
     Visitor.remove({_id: id});
+  },
+
+  removeMember: function(id) {
+    check(id, String);
+    Member.remove({_id: id});
+  },
+
+  removeAgenda: function(id) {
+    check(id, String);
+    Agenda.remove({_id: id});
   }
 
 });
